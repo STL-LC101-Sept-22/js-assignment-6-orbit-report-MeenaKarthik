@@ -1,6 +1,22 @@
 <h3>Satellite Count:</h3>
 <div class="counts">
-	<div>Total: <span class="counts-total">NaN</span></div>
+	<div>
+		<span class="counts-total">
+			<table>
+				<tr class="data-row">
+					<td>Total:</td>
+					<td>{{satellites.length}}</td>
+				</tr>
+				
+				<tr class="data-row" *ngFor = "let element of getUniqueType()">					
+					<td>{{element}}</td>
+					<td>{{countByType(element)}}</td>
+				</tr>
+		    </table>
+			
+	    </span>
+		
+	</div>
 </div>
 
 <!-- TODO 4: add logic to count number of satellites displayed -->

@@ -10,12 +10,16 @@ export class OrbitCountsComponent implements OnInit {
 
 	@Input() satellites: Satellite[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() { 
+	
   }
 
-  countByType(type: string): number {
+  ngOnInit() {
+
+  }
+    
+  
+    countByType(type: string): number {
 	let count = 0;
 	if (this.satellites) {
 	  for (let i = 0; i < this.satellites.length; i++) {
@@ -25,7 +29,22 @@ export class OrbitCountsComponent implements OnInit {
 	  }
 	}
 	return count;
- }
+    }
 
+	getUniqueType(): string[]{
 
+		let newArr = [];
+		if (this.satellites) {
+			for (let i = 0; i < this.satellites.length; i++) {
+			   if(!newArr.includes(this.satellites[i].type)) 
+			   newArr.push(this.satellites[i].type) 
+			}
+		  }
+		return newArr;
+	}
+
+    
+	
 }
+
+
